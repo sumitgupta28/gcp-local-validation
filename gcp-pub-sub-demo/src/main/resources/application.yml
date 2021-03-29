@@ -1,8 +1,21 @@
+server:
+  port: 8181
 
+## GCP configuration
 spring:
   cloud:
     gcp:
-      project-id: weighty-wonder-308406
+      project-id: ${PROJECT_ID}
       credentials:
-        location:
-          
+        location: file:src/main/resources/service-account.json
+
+
+## Application configuration
+app:
+ message:
+   topic: 
+      name: "transaction-topic"
+   subscription:
+      name: "transaction-subscription"
+      name1: "transaction-notification-subscription"
+             
