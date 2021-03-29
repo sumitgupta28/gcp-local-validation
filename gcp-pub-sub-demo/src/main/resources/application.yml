@@ -1,0 +1,8 @@
+
+spring:
+  cloud:
+    gcp:
+      project-id: weighty-wonder-308406
+      credentials:
+        location:
+          
