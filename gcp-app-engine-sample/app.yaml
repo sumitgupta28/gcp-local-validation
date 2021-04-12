@@ -1,0 +1,6 @@
+runtime: java
+service: gcp-app-engine-sample-service
+
+handlers:
+  - url: /.*
+    script: this field is required, but ignored

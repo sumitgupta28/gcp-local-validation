@@ -5,7 +5,7 @@ server:
 spring:
   cloud:
     gcp:
-      project-id: ${PROJECT_ID}
+      project-id: weighty-wonder-308406
       credentials:
         location: file:src/main/resources/service-account.json
 
