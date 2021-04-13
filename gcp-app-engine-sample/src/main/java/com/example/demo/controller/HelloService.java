@@ -1,10 +1,11 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.ResponseEntity;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,6 +18,10 @@ import io.swagger.annotations.ResponseHeader;
 @RequestMapping(path = "/api")
 @Api(description = "Set of endpoints for OCP Demo APP.")
 public class HelloService {
+	
+	
+	@Value("app.version:v1")
+	String appVersion;
 
 	@RequestMapping(method = RequestMethod.GET, path = "/health")
 	@ApiOperation(value = "Return 200 Healthy Response", notes = "Return 200 Healthy Response")
@@ -27,7 +32,7 @@ public class HelloService {
 			@ApiResponse(code = 500, message = "Some Sample Message") })
 	// @formatter:on
 	public ResponseEntity<String> health() {
-		return ResponseEntity.ok().body("App is Healthy");
+		return ResponseEntity.ok().body("App is Healthy : "+ appVersion);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/hello")
