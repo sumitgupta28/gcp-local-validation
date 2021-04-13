@@ -19,8 +19,7 @@ import io.swagger.annotations.ResponseHeader;
 @Api(description = "Set of endpoints for OCP Demo APP.")
 public class HelloService {
 	
-	
-	@Value("app.version:v1")
+	@Value("${app.version}")
 	String appVersion;
 
 	@RequestMapping(method = RequestMethod.GET, path = "/health")
