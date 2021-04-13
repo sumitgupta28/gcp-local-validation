@@ -31,7 +31,7 @@ public class HelloService {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/hello")
-	@ApiOperation(value = "Return Hello OCP", notes = "Return Hello OCP")
+	@ApiOperation(value = "Return Hello OCP", notes = "Return Hello Google app Engine")
 	// @formatter:off
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Some Sample Message"),
 			@ApiResponse(code = 404, message = "Some Sample Message"),
@@ -39,11 +39,11 @@ public class HelloService {
 			@ApiResponse(code = 500, message = "Some Sample Message") })
 	// @formatter:on
 	public String hello() {
-		return "hello OCP";
+		return "Hello Google app Engine";
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/hello/{name}")
-	@ApiOperation(value = "Return Hello + Name", notes = "Return Hello + Name")
+	@ApiOperation(value = "Return Hello + Name", notes = "Return Hello Google app Engine + Name")
 	// @formatter:off
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Some Sample Message"),
 			@ApiResponse(code = 404, message = "Some Sample Message", 
@@ -58,6 +58,6 @@ public class HelloService {
 	// @formatter:on
 
 	public String helloName(@ApiParam("name.") @PathVariable(value = "name") String name) {
-		return "hello " + name;
+		return "Hello Google app Engine " + name;
 	}
 }
