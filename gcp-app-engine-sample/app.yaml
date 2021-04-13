@@ -1,2 +1,3 @@
-runtime: java
+runtime: java11
 service: gcp-app-engine-sample-service
+entrypoint: java -jar gcp-app-engine-sample.jar
