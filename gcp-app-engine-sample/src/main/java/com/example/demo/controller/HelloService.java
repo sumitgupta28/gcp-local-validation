@@ -15,14 +15,19 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ResponseHeader;
 
 @RestController
-@RequestMapping(path = "/api")
+
 @Api(description = "Set of endpoints for OCP Demo APP.")
 public class HelloService {
 	
 	@Value("${app.version}")
 	String appVersion;
+	
+	@RequestMapping(method = RequestMethod.GET, path = "")
+	public ResponseEntity<String> defaultService() {
+		return ResponseEntity.ok().body("App is Healthy[Default Service] : "+ appVersion);
+	}
 
-	@RequestMapping(method = RequestMethod.GET, path = "/health")
+	@RequestMapping(method = RequestMethod.GET, path = "/api/health")
 	@ApiOperation(value = "Return 200 Healthy Response", notes = "Return 200 Healthy Response")
 	// @formatter:off
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Some Sample Message"),
@@ -34,7 +39,7 @@ public class HelloService {
 		return ResponseEntity.ok().body("App is Healthy : "+ appVersion);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "/hello")
+	@RequestMapping(method = RequestMethod.GET, path = "/api/hello")
 	@ApiOperation(value = "Return Hello OCP", notes = "Return Hello Google app Engine")
 	// @formatter:off
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Some Sample Message"),
@@ -46,7 +51,7 @@ public class HelloService {
 		return "Hello Google app Engine";
 	}
 
-	@RequestMapping(method = RequestMethod.GET, path = "/hello/{name}")
+	@RequestMapping(method = RequestMethod.GET, path = "/api/hello/{name}")
 	@ApiOperation(value = "Return Hello + Name", notes = "Return Hello Google app Engine + Name")
 	// @formatter:off
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Some Sample Message"),
