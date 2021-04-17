@@ -66,7 +66,7 @@ public class HelloService {
 			@ApiResponse(code = 500, message = "Some Sample Message") })
 	// @formatter:on
 
-	public String helloName(@ApiParam("name.") @PathVariable(value = "name") String name) {
+	public String helloName(@ApiParam("name") @PathVariable(value = "name") String name) {
 		return "Hello Google app Engine " + name;
 	}
 }
